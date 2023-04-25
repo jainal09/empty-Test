@@ -1,4 +1,4 @@
-#Search Algorithms — Binary Search Code Implementation and Complexity Analysis <a href="#a483" id="a483"></a>
+# Search Algorithms — Binary Search Code Implementation and Complexity Analysis <a href="#a483" id="a483"></a>
 
 ### It is crucial for developers to comprehend the concept of search algorithms, which utilize a step-by-step approach to locate specific data in a collection. This article will delve into the implementation of search algorithms in Java and Python, providing insights into their operation. Search algorithms are designed to retrieve or verify an element in any data structure in which it is stored, searching for a target (key) in the search space. <a href="#06c2" id="06c2"></a>
 
