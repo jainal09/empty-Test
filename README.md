@@ -89,6 +89,30 @@ If the target element is not found in the array, we return -1 to indicate that i
 
 ### Binary Search in Python <a href="#0090" id="0090"></a>
 
+```python
+def binary_search(nums, target):
+    start = 0
+    end = len(nums)-1
+
+    while start <= end:
+        mid = start + (end-start)//2
+
+        if nums[mid] > target:
+            end = mid-1
+        elif nums[mid] < target:
+            start = mid+1
+        else:
+            return mid
+
+    return -1
+
+
+if __name__ == '__main__':
+    nums = [2, 12, 15, 17, 27, 29, 45]
+    target = 17
+    print(binary_search(nums, target))
+```
+
 The provided code is a Python implementation of the binary search algorithm. The `search` function takes in an array of numbers `nums` and a target value `target`, and returns the index of the target in the array. The function first initializes `start` and `end` variables to the start and end indices of the array, respectively. It then uses a while loop to repeatedly divide the search space in half until it either finds the target value or determines that the target is not in the array. The midpoint index is calculated using `(start+end)//2`. If the target is less than the midpoint value, the search continues on the left half of the array by setting `end` to `mid-1`. If the target is greater than the midpoint value, the search continues on the right half of the array by setting `start` to `mid+1`. If the target is equal to the midpoint value, the function returns the midpoint index. If the loop finishes without finding the target, the function returns `-1`. The provided code is well-structured and uses clear variable names, making it easy to understand and modify as needed.
 
 ### Time Complexity Analysis <a href="#1026" id="1026"></a>
@@ -141,6 +165,50 @@ To determine whether the array is sorted in ascending or descending order, we co
 
 > Implementation in Java
 
+```java
+package myPackage.myAlgorithms;
+
+public class MyOrderAgnosticBinarySearch {
+    public static void main(String[] args) {
+        int[] nums1 = {-1, 2, 4, 6, 7, 8, 12, 15, 19, 32, 45, 67, 99};
+        int[] nums2 = {99, 67, 45, 32, 19, 15, 12, 8, 7, 6, 4, 2, -1};
+        int target = -1;
+        System.out.println(mySearch(nums1, target));
+        System.out.println(mySearch(nums2, target));
+    }
+
+    static int mySearch(int[] arr, int target) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        boolean isAscending = arr[start] < arr[end];
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if (target == arr[mid])
+                return mid;
+
+            if (isAscending) {
+                if (target < arr[mid]) {
+                    end = mid - 1;
+                } else {
+                    start = mid + 1;
+                }
+            } else {
+                if (target < arr[mid]) {
+                    start = mid + 1;
+                } else {
+                    end = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
+
+}
+```
+
 This code demonstrates an implementation of the Order-Agnostic Binary Search algorithm. This algorithm is used to find the index of a target element in a sorted array, regardless of whether the array is sorted in ascending or descending order.
 
 The code first defines two example arrays `nums1` and `nums2` and a target element `target`. It then prints the result of calling the `search` function on both arrays with the target element as an argument.
@@ -152,6 +220,42 @@ Inside the `while` loop, it calculates the middle index `mid` of the array using
 If the target element is not found in the array, the function returns -1.
 
 > Implementation in Python
+
+```python
+import random
+
+def search_array(array, target):
+    start_index = 0
+    end_index = len(array) - 1
+
+    is_ascending = array[start_index] < array[end_index]
+
+    while start_index <= end_index:
+        mid_index = start_index + (end_index - start_index) // 2
+
+        if target == array[mid_index]:
+            return mid_index
+
+        if is_ascending:
+            if target < array[mid_index]:
+                end_index = mid_index - 1
+            else:
+                start_index = mid_index + 1
+        else:
+            if target < array[mid_index]:
+                start_index = mid_index + 1
+            else:
+                end_index = mid_index - 1
+
+    return -1
+
+if __name__ == '__main__':
+    nums1 = [-1, 2, 4, 6, 7, 8, 12, 15, 19, 32, 45, 67, 99]
+    nums2 = [99, 67, 45, 32, 19, 15, 12, 8, 7, 6, 4, 2, -1]
+    target = -1
+    print(search_array(nums1, target))
+    print(search_array(nums2, target))
+```
 
 This code defines a function `search_array` that takes an array and a target value and performs a binary search on the array to find the target value. The array can be either in ascending or descending order. The function returns the index of the target value in the array, or -1 if the target value is not found.
 
@@ -166,14 +270,6 @@ Finally, the code defines two arrays and a target value, and calls the `search_a
 There will be no change in the time complexity, so it will be the same as Binary Search.
 
 ## Application of Binary Search in Real Word Use Cases <a href="#a4ea" id="a4ea"></a>
-
-<figure><img src="https://miro.medium.com/v2/resize:fit:2048/1*g59Dn13kTg82XdF5TT1qeg.jpeg" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="https://miro.medium.com/v2/resize:fit:2048/1*OviElz18lu8LCcl8KlCKkw.jpeg" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="https://miro.medium.com/v2/resize:fit:2048/1*QLX2f3FsOrnk2dFJVePFOQ.jpeg" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="https://miro.medium.com/v2/resize:fit:2048/1*qfJfkBQ5TJnfjSVtXmKpXw.jpeg" alt=""><figcaption><p>Images Generated by AI. Powered by DALLE</p></figcaption></figure>
 
 Binary search is a highly efficient algorithm that finds numerous practical applications in real-life software development. It has several applications, some of which are:
 
