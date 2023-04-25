@@ -1,4 +1,4 @@
-# Search Algorithms — Binary Search Code Implementation and Complexity Analysis <a href="#a483" id="a483"></a>
+# empty-Test
 
 ### It is crucial for developers to comprehend the concept of search algorithms, which utilize a step-by-step approach to locate specific data in a collection. This article will delve into the implementation of search algorithms in Java and Python, providing insights into their operation. Search algorithms are designed to retrieve or verify an element in any data structure in which it is stored, searching for a target (key) in the search space. <a href="#06c2" id="06c2"></a>
 
@@ -266,6 +266,41 @@ Finally, the code defines two arrays and a target value, and calls the `search_a
 ## Time Complexity Analysis <a href="#8fb9" id="8fb9"></a>
 
 There will be no change in the time complexity, so it will be the same as Binary Search.
+
+```python
+"""
+Here is a script Generates a sorted dataset of integers for binary search algorithm testing.
+    Args:
+        size (int): Size of the dataset to be generated.
+    Returns:
+        list: Sorted list of integers.
+"""
+def generate_dataset(size):
+    """
+    Args:
+        size (int): Size of the dataset to be generated.
+    Returns:
+        list: Sorted list of integers.
+    """
+    dataset = []
+    for i in range(size):
+        # Generate a random integer between 1 and 1000
+        dataset.append(random.randint(1, 1000))
+    dataset.sort() # Sort the dataset in ascending order
+    return dataset
+```
+
+Based on this we can do a time analysis of binary search&#x20;
+
+```
+Dataset size: 10000, Target: 215, Index: 2166, Search Time: 0.000002 seconds
+Dataset size: 50000, Target: 454, Index: 22850, Search Time: 0.000003 seconds
+Dataset size: 100000, Target: 994, Index: 99315, Search Time: 0.000003 seconds
+Dataset size: 500000, Target: 53, Index: 26365, Search Time: 0.000006 seconds
+Dataset size: 1000000, Target: 194, Index: 192381, Search Time: 0.000005 seconds
+```
+
+<figure><img src=".gitbook/assets/2023-04-24_22-57-25.png" alt=""><figcaption></figcaption></figure>
 
 ## Application of Binary Search in Real Word Use Cases <a href="#a4ea" id="a4ea"></a>
 
